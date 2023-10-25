@@ -14,7 +14,7 @@ git remote set-url origin git+ssh://git@github.com/TTauSpin/PolarimetricVectorTa
   // reco::Candidate::LorentzVector p1     is the four-vector of the first  same-sign pion [1,2]
   // reco::Candidate::LorentzVector p2     is the four-vector of the second same-sign pion [1,2]
   // reco::Candidate::LorentzVector p3     is the four-vector of the opposite-sign pion    [3]
-  // integer                        charge is the sum of the three pions` charge
+  // integer                        charge is the sum of the three pions charge
   // reco::Candidate::Vector        h      is the polarimeter vector
   //
   //  [1] the two pi- in tau- -> pi- pi+ pi- nu decays
