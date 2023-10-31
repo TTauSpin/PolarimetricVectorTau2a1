@@ -291,8 +291,8 @@ PolarimetricVectorTau2a1::comp_Pi5(const cLorentzVector& J, const LorentzVector&
   LorentzVector retVal(2.*vProd(0).imag(), 2.*vProd(1).imag(), 2.*vProd(2).imag(), 2.*vProd(3).imag());
   // CV: sign of Pi5 term differs for tau+ and tau-
   double sign = 0.;
-  if      ( charge == +1 ) sign = +1.;
-  else if ( charge == -1 ) sign = -1.;
+  if      ( charge == +1 ) sign = -1.;
+  else if ( charge == -1 ) sign = +1.;
   else assert(0);
   retVal *= sign;
   return retVal;
