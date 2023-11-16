@@ -136,11 +136,20 @@ PolarimetricVectorTau2a1::operator()(const LorentzVector& p1, const LorentzVecto
   LorentzVector Pi = comp_Pi(J, N);
   LorentzVector Pi5 = comp_Pi5(J, N, charge);
 
-  const double gammaVA = 1.; // CV: Standard Model value, cf. Section 3.2 in Comput.Phys.Commun. 64 (1991) 275
-  double omega = P.Dot(Pi - gammaVA*Pi5);
+  // CV: Standard Model value, cf. text following Eq. (3.15) in Comput.Phys.Commun. 64 (1991) 275
+  const double gammaVA = 1.;
+
+  // CV: sign of terms proportional to gammaVA differs for tau+ and tau-,
+  //     cf. text following Eq. (3.16) in Comput.Phys.Commun. 64 (1991) 275
+  double sign = 0.;
+  if      ( charge == +1 ) sign = -1.;
+  else if ( charge == -1 ) sign = +1.;
+  else assert(0);
+
+  double omega = P.Dot(Pi - sign*gammaVA*Pi5);
 
   const double M = m_tau_;
-  LorentzVector H = (1./(omega*M))*(pow(M, 2)*(Pi5 - gammaVA*Pi) - P.Dot(Pi5 - gammaVA*Pi)*P);
+  LorentzVector H = (1./(omega*M))*(pow(M, 2)*(Pi5 - sign*gammaVA*Pi) - P.Dot(Pi5 - sign*gammaVA*Pi)*P);
 
   Vector retVal = H.Vect().unit();
   return retVal;
@@ -289,12 +298,6 @@ PolarimetricVectorTau2a1::comp_Pi5(const cLorentzVector& J, const LorentzVector&
   vProd = g_*vProd;
 
   LorentzVector retVal(2.*vProd(0).imag(), 2.*vProd(1).imag(), 2.*vProd(2).imag(), 2.*vProd(3).imag());
-  // CV: sign of Pi5 term differs for tau+ and tau-
-  double sign = 0.;
-  if      ( charge == +1 ) sign = +1.;
-  else if ( charge == -1 ) sign = -1.;
-  else assert(0);
-  retVal *= sign;
   return retVal;
 }
 
