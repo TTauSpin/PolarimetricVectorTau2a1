@@ -18,7 +18,7 @@ The code depends on the ROOT and ROOT math libraries. It is left to the user to 
   // PolarimetricVectorTau2a1::LorentzVector p3      is the four-vector of the opposite-sign pion                            [3]
   // integer                                 charge  is the charge-sum of the three pion system                              [4]
   // PolarimetricVectorTau2a1::DecayChannel  channel flag indicating whether tau decays into pi- pi+ pi- or into pi- pi0 pi0 [5]
-  // reco::Candidate::Vector        h      is the polarimeter vector
+  // PolarimetricVectorTau2a1::Vector        h       is the polarimetric vector
   //
   //  [1] the two pi- in tau- -> pi- pi+ pi- nu decays
   //          two pi+ in tau+ -> pi+ pi- pi+ nu decays
@@ -37,5 +37,5 @@ The code depends on the ROOT and ROOT math libraries. It is left to the user to 
   // of p1, p2, and p3 from the laboratory frame to the tau-lepton restframe is left to the user code.
   //
   PolarimetricVectorTau2a1 a1pol;
-  reco::Candidate::Vector h = a1pol(p1, p2, p3, charge, channel);
+  PolarimetricVectorTau2a1::Vector h = a1pol(p1, p2, p3, charge, channel);
 ```
