@@ -10,13 +10,17 @@
  * Compute polarimetric vector for tau->a1->pi- pi0 pi0 nu and tau->a1->pi- pi+ pi- nu decays.
  *
  * The computation of the polarimetric vector is based on Section 3.2 of the paper:
+ *   "TAUOLA - a library of Monte Carlo programs to simulate decays of polarized tau leptons",
  *   Comput.Phys.Commun. 64 (1991) 275,
  * with the hadronic current J taken from the measurement of tau->a1->pi- pi0 pi0 nu decays 
  * by the CLEO collaboration, published in the paper:
+ *   "Hadronic structure in the decay tau- -> nu_tau pi- pi0 pi0 and the sign of the tau neutrino helicity",
  *   Phys.Rev.D 61 (2000) 012002
  *
  * If you use this code, please cite: 
- *   XXXXXX
+ *   Vladimir Cherepanov and Christian Veelken,
+ *   "The polarimeter vector for tau->3pi nu decays",
+ *   arXiv:2311.10490
  *
  */
 
